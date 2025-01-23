@@ -8,7 +8,7 @@
             --primaryColor: #fd4;
             --secondaryColor: #FC766A;
             --errorColor: #f55;
-            --accentColor: #fd4;
+            --accentColor: var(--primaryColor);
         }
 
         * {
@@ -113,6 +113,7 @@
             color: var(--textSecondary);
             transition: filter 0.3s ease;
             will-change: margin-top;
+            position: relative;
         }
 
         #game:focus #words {
@@ -138,6 +139,12 @@
             display: inline-block;
             font-family: 'Roboto Mono', monospace;
             margin: 0 5px;
+            position: relative;
+        }
+
+        .letter {
+            position: relative;
+            display: inline-block;
         }
 
         .letter.correct {
@@ -156,7 +163,7 @@
         #cursor {
             display: none;
             width: 2px;
-            height: 1.6rem;
+            height: 1.6em;
             background: var(--primaryColor);
             position: absolute;
             animation: blink 0.7s infinite;
@@ -181,6 +188,28 @@
             display: none;
         }
 
+        #retryBtn {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            background: var(--primaryColor);
+            color: var(--bgColor);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #retryBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 221, 68, 0.3);
+        }
+
+        #game.over ~ #retryBtn {
+            display: block;
+        }
+
         @media (max-width: 600px) {
             main {
                 padding: 15px;
@@ -197,5 +226,24 @@
             #controls {
                 flex-direction: column;
             }
+        }
+
+        #colorPickerBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primaryColor);
+            color: var(--bgColor);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #colorPickerBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 221, 68, 0.3);
         }
     
