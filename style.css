@@ -1,249 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono&display=swap');
 
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono&display=swap');
+:root {
+    --bgColor: #121212;
+    --textPrimary: #e0e0e0;
+    --textSecondary: #666;
+    --primaryColor: #fd4;
+    --secondaryColor: #FC766A;
+    --errorColor: #f55;
+    --accentColor: var(--primaryColor);
+}
 
-        :root {
-            --bgColor: #121212;
-            --textPrimary: #e0e0e0;
-            --textSecondary: #666;
-            --primaryColor: #fd4;
-            --secondaryColor: #FC766A;
-            --errorColor: #f55;
-            --accentColor: var(--primaryColor);
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            transition: all 0.3s ease;
-        }
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bgColor);
-            color: var(--textPrimary);
-            font-size: 1.2rem;
-            line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+main {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 
-        main {
-            width: 100%;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+h1 {
+    color: var(--primaryColor);
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
 
-        h1 {
-            color: var(--primaryColor);
-            display: flex;
-            align-items: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
+h1 svg {
+    width: 40px;
+    height: 40px;
+    fill: var(--primaryColor);
+    margin-right: 15px;
+}
 
-        h1 svg {
-            width: 40px;
-            height: 40px;
-            fill: var(--primaryColor);
-            margin-right: 15px;
-        }
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
-        #header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+#info {
+    color: var(--primaryColor);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
-        #info {
-            color: var(--accentColor);
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
+#controls {
+    display: flex;
+    gap: 10px;
+}
 
-        #controls {
-            display: flex;
-            gap: 10px;
-        }
+button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primaryColor);
+    color: var(--primaryColor);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
 
-        button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--primaryColor);
-            color: var(--primaryColor);
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            outline: none;
-        }
+button:hover, button.active {
+    background: var(--primaryColor);
+    color: var(--bgColor);
+}
 
-        button:hover, button.active {
-            background: var(--primaryColor);
-            color: var(--bgColor);
-        }
+#game {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 35px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
 
-        #game {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 20px;
-            line-height: 35px;
-            height: 150px;
-            overflow: hidden;
-            position: relative;
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease;
-        }
+#game:focus {
+    border-color: var(--primaryColor);
+    outline: none;
+}
 
-        #game:focus {
-            border-color: var(--primaryColor);
-            outline: none;
-        }
+#words {
+    filter: blur(5px);
+    color: var(--textSecondary);
+    transition: filter 0.3s ease;
+    will-change: margin-top;
+    position: relative;
+}
 
-        #words {
-            filter: blur(5px);
-            color: var(--textSecondary);
-            transition: filter 0.3s ease;
-            will-change: margin-top;
-            position: relative;
-        }
+#game:focus #words {
+    filter: blur(0);
+}
 
-        #game:focus #words {
-            filter: blur(0);
-        }
+#focus-error {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--primaryColor);
+    font-size: 1.2rem;
+}
 
-        #focus-error {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.7);
-            color: var(--primaryColor);
-            font-size: 1.2rem;
-        }
+#game:focus #focus-error {
+    display: none;
+}
 
-        #game:focus #focus-error {
-            display: none;
-        }
+.word {
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0 5px;
+    position: relative;
+}
 
-        .word {
-            display: inline-block;
-            font-family: 'Roboto Mono', monospace;
-            margin: 0 5px;
-            position: relative;
-        }
+.letter {
+    position: relative;
+    display: inline-block;
+}
 
-        .letter {
-            position: relative;
-            display: inline-block;
-        }
+.letter.correct {
+    color: var(--textPrimary);
+}
 
-        .letter.correct {
-            color: var(--textPrimary);
-        }
+.letter.incorrect {
+    color: var(--secondaryColor);
+}
 
-        .letter.incorrect {
-            color: var(--secondaryColor);
-        }
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+#cursor {
+    display: none;
+    width: 2px;
+    height: 1.6em;
+    background: var(--primaryColor);
+    position: absolute;
+    animation: blink 0.7s infinite;
+    z-index: 10;
+    pointer-events: none;
+}
 
-        #cursor {
-            display: none;
-            width: 2px;
-            height: 1.6em;
-            background: var(--primaryColor);
-            position: absolute;
-            animation: blink 0.7s infinite;
-            z-index: 10;
-            pointer-events: none;
-        }
+#game:focus #cursor {
+    display: block;
+}
 
-        #game:focus #cursor {
-            display: block;
-        }
+#game.over #words {
+    opacity: 0.5;
+    filter: blur(0);
+}
 
-        #game.over #words {
-            opacity: 0.5;
-            filter: blur(0);
-        }
+#game.over:focus #cursor {
+    display: none;
+}
 
-        #game.over:focus #cursor {
-            display: none;
-        }
+#game.over #focus-error {
+    display: none;
+}
 
-        #game.over #focus-error {
-            display: none;
-        }
+#retryBtn {
+    display: none;
+    margin: 20px auto;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    background: var(--primaryColor);
+    color: var(--bgColor);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        #retryBtn {
-            display: none;
-            margin: 20px auto;
-            padding: 10px 30px;
-            font-size: 1.1rem;
-            background: var(--primaryColor);
-            color: var(--bgColor);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+#retryBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 221, 68, 0.3);
+}
 
-        #retryBtn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 221, 68, 0.3);
-        }
+#game.over ~ #retryBtn {
+    display: block;
+}
 
-        #game.over ~ #retryBtn {
-            display: block;
-        }
+@media (max-width: 600px) {
+    main {
+        padding: 15px;
+    }
 
-        @media (max-width: 600px) {
-            main {
-                padding: 15px;
-            }
+    h1 {
+        font-size: 2rem;
+    }
 
-            h1 {
-                font-size: 2rem;
-            }
+    #game {
+        height: 180px;
+    }
 
-            #game {
-                height: 180px;
-            }
+    #controls {
+        flex-direction: column;
+    }
+}
 
-            #controls {
-                flex-direction: column;
-            }
-        }
+#colorControls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
 
-        #colorPickerBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primaryColor);
-            color: var(--bgColor);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+#colorPickerBtn, #resetColorBtn {
+    background: var(--primaryColor);
+    color: var(--bgColor);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
 
-        #colorPickerBtn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 221, 68, 0.3);
-        }
-    
+#colorPickerBtn:hover, #resetColorBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 221, 68, 0.3);
+}
