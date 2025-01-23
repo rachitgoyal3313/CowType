@@ -224,7 +224,9 @@
 
     // Color picker functionality
     const colorPickerBtn = document.getElementById('colorPickerBtn');
+    const resetColorBtn = document.getElementById('resetColorBtn');
     const colorPicker = document.getElementById('colorPicker');
+    const defaultColor = '#fd4';
 
     function setColor(color) {
         document.documentElement.style.setProperty('--primaryColor', color);
@@ -245,6 +247,11 @@
 
     colorPicker.addEventListener('change', (e) => {
         setColor(e.target.value);
+    });
+
+    resetColorBtn.addEventListener('click', () => {
+        setColor(defaultColor);
+        colorPicker.value = defaultColor;
     });
 
     // Load saved color on page load
