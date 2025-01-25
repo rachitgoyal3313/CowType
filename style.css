@@ -223,13 +223,14 @@
         #game {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            padding: 20px;
-            line-height: 35px;
-            height: 150px;
+            padding: 30px;
+            line-height: 40px;
+            height: 200px;
             overflow: hidden;
             position: relative;
             border: 2px solid transparent;
             transition: border-color 0.3s ease;
+            font-size: 1.3rem;
         }
 
         #game:focus {
@@ -459,9 +460,9 @@
             }
 
             #game {
-                height: 120px;
-                font-size: 1rem;
-                line-height: 25px;
+                height: 150px;
+                font-size: 1.1rem;
+                line-height: 30px;
             }
 
             #controls {
@@ -485,13 +486,7 @@
                 margin-bottom: 10px;
             }
 
-            .circular-timer {
-                width: 25px;
-                height: 25px;
-            }
-
             #info {
                 font-size: 1rem;
             }
         }
-    
